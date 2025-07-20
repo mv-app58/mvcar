@@ -6,9 +6,29 @@
     <link rel="manifest" href="manifest.json" />
     <link rel="icon" href="icon.png" type="image/png" />
     <title>MV CAR</title>
+    <style>
+      body {
+        margin: 0;
+        background: url('./img/photo-1605379399642-870262d3d051.avif') no-repeat center center fixed;
+        background-size: cover;
+        color: #fff;
+        font-family: sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      #app {
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 30px;
+        border-radius: 12px;
+        text-align: center;
+        font-size: 1.2rem;
+      }
+    </style>
   </head>
-  <body style="margin:0;background:#000;color:#fff;font-family:sans-serif;">
-    <div id="app" style="text-align:center;padding:30px;">Carregando o MV CAR...</div>
+  <body>
+    <div id="app">Carregando o MV CAR...</div>
     <script src="main.js"></script>
   </body>
 </html>
