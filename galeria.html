@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Galeria de Serviços - MV CAR</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #d40000;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #d40000;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+    .item {
+      background-color: #222;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+    .item img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+    footer {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <header>MV CAR - Galeria de Serviços</header>
+  <nav>
+    <a href="home.html">Início</a>
+    <a href="galeria.html">Serviços</a>
+    <a href="agendamento.html">Agendamento</a>
+    <a href="historico.html">Histórico</a>
+    <a href="orcamentos.html">Orçamento</a>
+    <a href="index.html">Sair</a>
+  </nav>
+
+  <div class="container">
+    <div class="item">
+      <img src="img/oficina1.jpg" alt="Troca de óleo">
+      <h3>Troca de óleo</h3>
+      <p>Serviço rápido e com qualidade</p>
+    </div>
+    <div class="item">
+      <img src="img/oficina2.jpg" alt="Revisão geral">
+      <h3>Revisão geral</h3>
+      <p>Segurança garantida no seu veículo</p>
+    </div>
+    <div class="item">
+      <img src="img/oficina3.jpg" alt="Alinhamento e balanceamento">
+      <h3>Alinhamento e balanceamento</h3>
+      <p>Precisão e estabilidade nas ruas</p>
+    </div>
+    <div class="item">
+      <img src="img/oficina4.jpg" alt="Freios e suspensão">
+      <h3>Freios e suspensão</h3>
+      <p>Evite desgastes e acidentes</p>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 MV CAR. Todos os direitos reservados.
+  </footer>
+</body>
+</html>
