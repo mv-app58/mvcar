@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MV CAR - Home</title>
+  <title>MV CAR - Início</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #111;
-      color: #fff;
+      color: white;
     }
     header {
       background-color: #d40000;
@@ -18,15 +18,32 @@
       font-size: 24px;
       font-weight: bold;
     }
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 15px;
     }
-    .gallery img {
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #d40000;
+    }
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 20px;
+      padding: 30px;
+    }
+    .galeria img {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.5);
     }
     footer {
@@ -39,19 +56,16 @@
   </style>
 </head>
 <body>
-  <header>
-    Bem-vindo ao MV CAR
-  </header>
+  <header>MV CAR - Bem-vindo</header>
+  <nav>
+    <a href="home.html">Início</a>
+    <a href="galeria.html">Serviços</a>
+    <a href="agendamento.html">Agendamento</a>
+    <a href="historico.html">Histórico</a>
+    <a href="orcamentos.html">Orçamento</a>
+    <a href="index.html">Sair</a>
+  </nav>
 
-  <section class="gallery">
-    <img src="img/Gemini_Generated_Image_6cwkfa6cwkfa6cwk.png" alt="Imagem oficina 1">
-    <img src="img/Gemini_Generated_Image_hmbtawhmbtawhmbt.png" alt="Imagem oficina 2">
-    <img src="img/Gemini_Generated_Image_u7f02hu7f02hu7f0.png" alt="Imagem oficina 3">
-    <img src="img/Gemini_Generated_Image_wjam7bwjam7bwjam.png" alt="Imagem oficina 4">
-  </section>
-
-  <footer>
-    &copy; 2025 MV CAR. Todos os direitos reservados.
-  </footer>
-</body>
-</html>
+  <div class="galeria">
+    <img src="img/oficina1.jpg" alt="Serviço 1"/>
+    <img src="img/oficina2.
