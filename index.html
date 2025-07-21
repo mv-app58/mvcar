@@ -1,36 +1,41 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - MV CAR</title>
-  <link rel="manifest" href="manifest.json">
   <script defer src="main.js"></script>
   <style>
     body {
+      margin: 0;
       background-color: #111;
-      color: white;
       font-family: Arial, sans-serif;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      margin: 0;
+      color: white;
     }
+
+    #login-container {
+      text-align: center;
+    }
+
     input, button {
       padding: 10px;
-      margin: 8px 0;
+      margin: 10px 0;
       width: 250px;
       font-size: 16px;
       border-radius: 5px;
       border: none;
     }
+
     button {
       background-color: red;
       color: white;
       cursor: pointer;
     }
+
     img {
       width: 300px;
       border-radius: 10px;
@@ -40,7 +45,13 @@
 </head>
 <body>
   <div id="app">
-    <!-- Login será renderizado pelo main.js -->
+    <div id="login-container">
+      <img src="img/Gemini_Generated_Image_hmbtawhmbtawhmbt.png" alt="Login MV CAR" />
+      <h2>Login MV CAR</h2>
+      <input type="text" id="username" placeholder="Usuário" /><br />
+      <input type="password" id="password" placeholder="Senha" /><br />
+      <button onclick="login()">Entrar</button>
+    </div>
   </div>
 </body>
 </html>
