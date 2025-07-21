@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Agendamento - MV CAR</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #d40000;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #d40000;
+    }
+    form {
+      max-width: 400px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background-color: red;
+      color: white;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>Agendamento de Serviço</header>
+  <nav>
+    <a href="home.html">Início</a>
+    <a href="galeria.html">Serviços</a>
+    <a href="agendamento.html">Agendamento</a>
+    <a href="historico.html">Histórico</a>
+    <a href="orcamentos.html">Orçamento</a>
+    <a href="index.html">Sair</a>
+  </nav>
+
+  <form id="formAgendamento">
+    <input type="text" id="nome" placeholder="Nome completo" required />
+    <input type="tel" id="telefone" placeholder="Telefone com DDD" required />
+    <select id="servico">
+      <option value="Troca de óleo">Troca de óleo</option>
+      <option value="Alinhamento e balanceamento">Alinhamento e balanceamento</option>
+      <option value="Revisão completa">Revisão completa</option>
+      <option value="Freios e suspensão">Freios e suspensão</option>
+    </select>
+    <textarea id="observacoes" placeholder="Observações (opcional)"></textarea>
+    <button type="button" onclick="enviarWhatsApp()">Enviar para WhatsApp</button>
+  </form>
+
+  <footer>
+    &copy; 2025 MV CAR. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function enviarWhatsApp() {
+      const nome = document.getElementById('nome').value;
+      const telefone = document.getElementById('telefone').value;
+      const servico = document.getElementById('servico').value;
+      const obs = document.getElementById('observacoes').value;
+
+      const mensagem = `Olá, meu nome é ${nome}. Quero agendar um serviço: ${servico}. Telefone: ${telefone}. Observações: ${obs}`;
+      const numero = '5588999999999'; // coloque aqui o número da oficina com DDI
+
+      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
