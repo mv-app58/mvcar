@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Histórico de Atendimentos - MV CAR</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #d40000;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #d40000;
+    }
+    table {
+      width: 90%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      background-color: #222;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #444;
+    }
+    th {
+      background-color: #d40000;
+    }
+    tr:hover {
+      background-color: #333;
+    }
+    footer {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>Histórico de Atendimentos</header>
+  <nav>
+    <a href="home.html">Início</a>
+    <a href="galeria.html">Serviços</a>
+    <a href="agendamento.html">Agendamento</a>
+    <a href="historico.html">Histórico</a>
+    <a href="orcamentos.html">Orçamento</a>
+    <a href="index.html">Sair</a>
+  </nav>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Serviço</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>05/06/2025</td>
+        <td>Troca de óleo</td>
+        <td>Concluído</td>
+      </tr>
+      <tr>
+        <td>21/06/2025</td>
+        <td>Revisão geral</td>
+        <td>Em andamento</td>
+      </tr>
+      <tr>
+        <td>12/07/2025</td>
+        <td>Freios e suspensão</td>
+        <td>Agendado</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <footer>
+    &copy; 2025 MV CAR. Todos os direitos reservados.
+  </footer>
+</body>
+</html>
