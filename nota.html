@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nota Fiscal - MV CAR</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #d40000;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #d40000;
+    }
+    form {
+      max-width: 600px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea, button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      background-color: red;
+      color: white;
+      cursor: pointer;
+    }
+    #output {
+      margin: 30px auto;
+      max-width: 600px;
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+      display: none;
+    }
+    footer {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>Nota Fiscal - MV CAR</header>
+  <nav>
+    <a href="home.html">Início</a>
+    <a href="ordem.html">Ordem de Serviço</a>
+    <a href="nota.html">Nota Fiscal</a>
+    <a href="usuarios.html">Usuários</a>
+    <a href="index.html">Sair</a>
+  </nav>
+
+  <form id="formNF">
+    <input type="text" id="nome" placeholder="Nome do Cliente" required />
+    <input type="text" id="cpf" placeholder="CPF ou CNPJ" required />
+    <textarea id="servico" placeholder="Descrição do Serviço" required></textarea>
+    <input type="number" id="valor" placeholder="Valor Total (R$)" required />
+    <button type="button" onclick="gerarNF()">Gerar Nota Fiscal</button>
+  </form>
+
+  <div id="output">
+    <h3>Nota Fiscal MV CAR</h3>
+    <p id="dados"></p>
+    <button onclick="window.print()">Imprimir</button>
+  </div>
+
+  <footer>
+    &copy; 2025 MV CAR. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function gerarNF() {
+      const nome = document.getElementById('nome').value;
+      const cpf = document.getElementById('cpf').value;
+      const servico = document.getElementById('servico').value;
+      const valor = document.getElementById('valor').value;
+
+      const dados = `
+        <strong>Cliente:</strong> ${nome}<br>
+        <strong>CPF/CNPJ:</strong> ${cpf}<br>
+        <strong>Serviço:</strong> ${servico}<br>
+        <strong>Valor Total:</strong> R$ ${valor}<br>
+        <strong>Data de Emissão:</strong> ${new Date().toLocaleDateString()}
+      `;
+
+      document.getElementById('dados').innerHTML = dados;
+      document.getElementById('output').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
