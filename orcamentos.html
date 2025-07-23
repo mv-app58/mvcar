@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Orçamentos - MV CAR</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #d40000;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #d40000;
+    }
+    form {
+      max-width: 400px;
+      margin: 30px auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea, button {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background-color: red;
+      color: white;
+      cursor: pointer;
+    }
+    footer {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>Solicitação de Orçamento</header>
+  <nav>
+    <a href="home.html">Início</a>
+    <a href="galeria.html">Serviços</a>
+    <a href="agendamento.html">Agendamento</a>
+    <a href="historico.html">Histórico</a>
+    <a href="orcamentos.html">Orçamento</a>
+    <a href="index.html">Sair</a>
+  </nav>
+
+  <form id="formOrcamento">
+    <input type="text" id="nome" placeholder="Seu nome" required />
+    <input type="email" id="email" placeholder="Seu e-mail" required />
+    <textarea id="detalhes" rows="5" placeholder="Descreva o problema ou serviço desejado..." required></textarea>
+    <button type="button" onclick="enviarOrcamento()">Solicitar Orçamento</button>
+  </form>
+
+  <footer>
+    &copy; 2025 MV CAR. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function enviarOrcamento() {
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const detalhes = document.getElementById('detalhes').value;
+
+      const mensagem = `Olá, sou ${nome}. Meu e-mail é ${email}. Quero um orçamento para: ${detalhes}`;
+      const numero = '5588999999999'; // número da oficina com DDI
+
+      window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, '_blank');
+    }
+  </script>
+</body>
+</html>
