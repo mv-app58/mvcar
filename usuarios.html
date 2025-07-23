@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Usuários - MV CAR</title>
+  <style>
+    body {
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      margin: 0;
+    }
+    header {
+      background-color: #d40000;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav {
+      background-color: #222;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      gap: 15px;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 5px;
+    }
+    nav a:hover {
+      background-color: #d40000;
+    }
+    .container {
+      max-width: 600px;
+      margin: 30px auto;
+      background: #222;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+    }
+    button {
+      background-color: red;
+      color: white;
+      cursor: pointer;
+    }
+    table {
+      width: 100%;
+      margin-top: 20px;
+      border-collapse: collapse;
+    }
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #444;
+    }
+    th {
+      background-color: #d40000;
+    }
+    tr:hover {
+      background-color: #333;
+    }
+    footer {
+      background-color: #222;
+      padding: 10px;
+      text-align: center;
+      color: #ccc;
+      font-size: 14px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>Gerenciar Usuários</header>
+  <nav>
+    <a href="home.html">Início</a>
+    <a href="ordem.html">Ordem de Serviço</a>
+    <a href="nota.html">Nota Fiscal</a>
+    <a href="usuarios.html">Usuários</a>
+    <a href="index.html">Sair</a>
+  </nav>
+
+  <div class="container">
+    <h3>Adicionar Novo Usuário</h3>
+    <input type="text" id="novoUsuario" placeholder="Novo usuário (e-mail)" />
+    <input type="password" id="novaSenha" placeholder="Senha" />
+    <button onclick="adicionarUsuario()">Adicionar</button>
+
+    <h3>Usuários Cadastrados</h3>
+    <table id="tabelaUsuarios">
+      <thead>
+        <tr>
+          <th>Usuário</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+
+  <footer>
+    &copy; 2025 MV CAR. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+
+    function atualizarTabela() {
+      const tabela = document.querySelector("#tabelaUsuarios tbody");
+      tabela.innerHTML = "";
+      usuarios.forEach((usuario, index) => {
+        tabela.innerHTML += `
+          <tr>
+            <td>${usuario.email}</td>
+            <td><button onclick="alterarSenha(${index})">Alterar Senha</button></td>
+          </tr>
+        `;
+      });
+    }
+
+    function adicionarUsuario() {
+      const email = document.getElementById("novoUsuario").value;
+      const senha = document.getElementById("novaSenha").value;
+      if (!email || !senha) {
+        alert("Preencha todos os campos.");
+        return;
+      }
+      usuarios.push({ email, senha });
+      localStorage.setItem("usuarios", JSON.stringify(usuarios));
+      document.getElementById("novoUsuario").value = "";
+      document.getElementById("novaSenha").value = "";
+      atualizarTabela();
+    }
+
+    function alterarSenha(index) {
+      const nova = prompt("Digite a nova senha:");
+      if (nova) {
+        usuarios[index].senha = nova;
+        localStorage.setItem("usuarios", JSON.stringify(usuarios));
+        alert("Senha alterada com sucesso.");
+      }
+    }
+
+    atualizarTabela();
+  </script>
+</body>
+</html>
