@@ -1,15 +1,15 @@
 {
   "name": "MV CAR",
   "short_name": "MV CAR",
-  "start_url": ".",
+  "start_url": "index.html",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#e11d48",
+  "background_color": "#111111",
+  "theme_color": "#d40000",
   "icons": [
     {
       "src": "icon.png",
-      "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "sizes": "512x512"
     }
   ]
 }
