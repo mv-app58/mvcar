@@ -1,11 +1,69 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Nota Fiscal - MV CAR</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f9f9f9; }
+    label, input, textarea, button { display: block; margin-top: 10px; width: 100%; max-width: 500px; }
+    input, textarea { padding: 8px; border: 1px solid #ccc; border-radius: 4px; }
+    button { padding: 10px; background: #b30000; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 20px; }
+  </style>
 </head>
-<body style="font-family:sans-serif; padding:20px;">
-  <h2>Nota Fiscal</h2>
-  <p>Essa funcionalidade será usada para gerar notas fiscais não fiscais com os dados da oficina e do cliente.</p>
+<body>
+  <h2>Gerar Nota Fiscal (PDF)</h2>
+
+  <label>Nome do Cliente:</label>
+  <input type="text" id="cliente">
+
+  <label>Veículo:</label>
+  <input type="text" id="veiculo">
+
+  <label>Serviços Realizados:</label>
+  <textarea id="servicos"></textarea>
+
+  <label>Valor Total (R$):</label>
+  <input type="number" id="valor">
+
+  <label>Observações:</label>
+  <textarea id="obs"></textarea>
+
+  <button onclick="gerarPDF()">Gerar Nota Fiscal</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    async function gerarPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+
+      const cliente = document.getElementById('cliente').value;
+      const veiculo = document.getElementById('veiculo').value;
+      const servicos = document.getElementById('servicos').value;
+      const valor = document.getElementById('valor').value;
+      const obs = document.getElementById('obs').value;
+
+      doc.setFontSize(12);
+      doc.text("MV CAR - CNPJ: 25.345.355/0001-43", 10, 10);
+      doc.text("Rua Dona Eloá do Vale Quadros, 09 - Cidade Tiradentes, SP", 10, 18);
+      doc.text("Telefones: (11) 97757-0353 / (11) 97062-4600", 10, 26);
+
+      doc.setFontSize(14);
+      doc.text("NOTA FISCAL - SEM VALOR FISCAL", 10, 38);
+
+      doc.setFontSize(12);
+      doc.text(`Cliente: ${cliente}`, 10, 48);
+      doc.text(`Veículo: ${veiculo}`, 10, 56);
+      doc.text("Serviços:", 10, 66);
+      doc.text(servicos, 10, 74);
+      doc.text(`Valor Total: R$ ${valor}`, 10, 100);
+      doc.text("Observações:", 10, 110);
+      doc.text(obs, 10, 118);
+
+      doc.text("------------------------------------------------------------", 10, 130);
+      doc.text("Este documento não possui valor fiscal.", 10, 140);
+
+      doc.save(`Nota_${cliente}.pdf`);
+    }
+  </script>
 </body>
 </html>
