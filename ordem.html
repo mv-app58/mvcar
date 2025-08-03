@@ -1,1 +1,75 @@
-<!DOCTYPE html><html><head><title>Ordem de Serviço</title></head><body><h1>Ordem de Serviço</h1></body></html>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Ordem de Serviço - MV CAR</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
+    h2 { color: #b30000; }
+    label { display: block; margin-top: 10px; }
+    input, textarea { width: 100%; padding: 5px; margin-top: 3px; }
+    button { margin-top: 15px; padding: 10px 20px; background: #b30000; color: white; border: none; border-radius: 4px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h2>Ordem de Serviço - MV CAR</h2>
+
+  <label>Cliente:</label>
+  <input type="text" id="cliente">
+
+  <label>CPF/CNPJ:</label>
+  <input type="text" id="cpf">
+
+  <label>Veículo (modelo / fabricante):</label>
+  <input type="text" id="veiculo">
+
+  <label>Placa:</label>
+  <input type="text" id="placa">
+
+  <label>Ano / Modelo:</label>
+  <input type="text" id="ano">
+
+  <label>Serviços Realizados:</label>
+  <textarea id="servicos" rows="4" placeholder="Ex: Troca de óleo, Revisão completa..."></textarea>
+
+  <label>Peças Utilizadas (opcional):</label>
+  <textarea id="pecas" rows="3"></textarea>
+
+  <label>Data de Entrada:</label>
+  <input type="date" id="entrada">
+
+  <label>Data de Saída:</label>
+  <input type="date" id="saida">
+
+  <label>Mecânico Responsável:</label>
+  <input type="text" id="mecanico">
+
+  <label>Observações:</label>
+  <textarea id="obs" rows="3"></textarea>
+
+  <button onclick="salvarOS()">Salvar Ordem de Serviço</button>
+
+  <script>
+    function salvarOS() {
+      const os = {
+        cliente: document.getElementById('cliente').value,
+        cpf: document.getElementById('cpf').value,
+        veiculo: document.getElementById('veiculo').value,
+        placa: document.getElementById('placa').value,
+        ano: document.getElementById('ano').value,
+        servicos: document.getElementById('servicos').value,
+        pecas: document.getElementById('pecas').value,
+        entrada: document.getElementById('entrada').value,
+        saida: document.getElementById('saida').value,
+        mecanico: document.getElementById('mecanico').value,
+        obs: document.getElementById('obs').value
+      };
+
+      let lista = JSON.parse(localStorage.getItem("ordens")) || [];
+      lista.push(os);
+      localStorage.setItem("ordens", JSON.stringify(lista));
+      alert("Ordem de Serviço salva com sucesso!");
+    }
+  </script>
+</body>
+</html>

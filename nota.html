@@ -3,90 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Nota Fiscal - MV CAR</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
-  <style>
-    body { font-family: Arial; padding: 20px; background-color: #f9f9f9; }
-    label { display: block; margin-top: 10px; }
-    input, textarea { width: 100%; padding: 5px; margin-top: 5px; }
-    button { margin-top: 15px; padding: 10px 20px; font-size: 16px; }
-  </style>
 </head>
-<body>
-  <h2>Gerar Nota Fiscal</h2>
-
-  <label>Cliente:</label>
-  <input type="text" id="cliente" placeholder="Nome do cliente">
-
-  <label>CPF/CNPJ:</label>
-  <input type="text" id="cpf">
-
-  <label>Endereço:</label>
-  <input type="text" id="endereco">
-
-  <label>Veículo (modelo / fabricante):</label>
-  <input type="text" id="veiculo">
-
-  <label>Placa:</label>
-  <input type="text" id="placa">
-
-  <label>Ano / Modelo:</label>
-  <input type="text" id="ano">
-
-  <label>Serviços / Peças (ex: 1|Troca de óleo|Serviço completo|100.00|100.00):</label>
-  <textarea id="servicos" rows="4"></textarea>
-
-  <label>Observações:</label>
-  <textarea id="observacoes" rows="3"></textarea>
-
-  <label>Atendente:</label>
-  <input type="text" id="atendente">
-
-  <button onclick="gerarNotaFiscal()">Gerar Nota Fiscal (PDF)</button>
-
-  <script>
-    function gerarNotaFiscal() {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-      doc.setFontSize(10);
-
-      // Cabeçalho
-      doc.text("MV CAR", 20, 20);
-      doc.text("CNPJ: 25.345.355/0001-43", 20, 25);
-      doc.text("End.: Rua Dona Eloá do Vale Quadros, 09", 20, 30);
-      doc.text("Cidade Tiradentes - São Paulo - SP", 20, 35);
-      doc.text("Tel: (11) 97757-0353 / (11) 97062-4600", 20, 40);
-
-      doc.text("ORÇAMENTO Nº 0001", 150, 20);
-      doc.text("Data: " + new Date().toLocaleDateString(), 150, 25);
-
-      // Dados Cliente
-      doc.text("Cliente: " + document.getElementById('cliente').value, 20, 50);
-      doc.text("CPF/CNPJ: " + document.getElementById('cpf').value, 20, 55);
-      doc.text("Endereço: " + document.getElementById('endereco').value, 20, 60);
-
-      // Dados Veículo
-      doc.text("Veículo: " + document.getElementById('veiculo').value, 20, 70);
-      doc.text("Placa: " + document.getElementById('placa').value, 90, 70);
-      doc.text("Ano/Modelo: " + document.getElementById('ano').value, 140, 70);
-
-      // Tabela de serviços
-      const dados = document.getElementById('servicos').value.trim().split('\n').map(linha => linha.split('|'));
-      doc.autoTable({
-        startY: 80,
-        head: [["Qtd", "Produto", "Descrição", "Unit", "SubTotal"]],
-        body: dados
-      });
-
-      // Rodapé
-      let posY = doc.lastAutoTable.finalY + 10;
-      doc.text("Observações: " + document.getElementById('observacoes').value, 20, posY);
-      doc.text("Atendente: " + document.getElementById('atendente').value, 20, posY + 10);
-      doc.setFontSize(11);
-      doc.text("NÃO TEM VALOR FISCAL", 80, posY + 20);
-
-      doc.save("nota_fiscal_mvcar.pdf");
-    }
-  </script>
+<body style="font-family:sans-serif; padding:20px;">
+  <h2>Nota Fiscal</h2>
+  <p>Essa funcionalidade será usada para gerar notas fiscais não fiscais com os dados da oficina e do cliente.</p>
 </body>
 </html>
