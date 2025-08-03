@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Gerenciar Usuários - MV CAR</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; background: #f4f4f4; }
+    h2 { color: #b30000; }
+    label, input, button { display: block; margin-top: 10px; }
+    input { width: 300px; padding: 5px; }
+    button { padding: 10px 20px; background: #b30000; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px; }
+    ul { list-style: none; padding: 0; }
+    li { background: #fff; margin: 5px 0; padding: 10px; border-radius: 4px; }
+  </style>
+</head>
+<body>
+  <h2>Gerenciamento de Usuários</h2>
+
+  <label>Nome de usuário:</label>
+  <input type="text" id="novoUsuario">
+
+  <label>Senha:</label>
+  <input type="password" id="novaSenha">
+
+  <button onclick="adicionarUsuario()">Adicionar Usuário</button>
+
+  <h3>Usuários Cadastrados:</h3>
+  <ul id="listaUsuarios"></ul>
+
+  <script>
+    const lista = document.getElementById('listaUsuarios');
+
+    function carregarUsuarios() {
+      lista.innerHTML = '';
+      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+      usuarios.forEach((u, i) => {
+        const item = document.createElement('li');
+        item.innerHTML = `${u.usuario} <button onclick="alterarSenha(${i})">Alterar Senha</button>`;
+        lista.appendChild(item);
+      });
+    }
+
+    function adicionarUsuario() {
+      const usuario = document.getElementById('novoUsuario').value;
+      const senha = document.getElementById('novaSenha').value;
+      if (!usuario || !senha) return alert("Preencha todos os campos.");
+      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+      usuarios.push({ usuario, senha });
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+      alert("Usuário adicionado!");
+      carregarUsuarios();
+    }
+
+    function alterarSenha(index) {
+      const nova = prompt("Digite a nova senha:");
+      if (!nova) return;
+      const usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
+      usuarios[index].senha = nova;
+      localStorage.setItem('usuarios', JSON.stringify(usuarios));
+      alert("Senha alterada!");
+    }
+
+    carregarUsuarios();
+  </script>
+</body>
+</html>
