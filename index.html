@@ -1,42 +1,77 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MV CAR - Gestão de Oficina</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MV CAR - Gestão de Oficina</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #1a1a1a;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        main {
+            padding: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #1a1a1a;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>MV CAR - Gestão de Oficina</h1>
-  </header>
 
-  <main>
-    <p>Bem-vindo ao sistema de gestão da MV CAR.</p>
+    <header>
+        <h1>MV CAR - Gestão de Oficina</h1>
+    </header>
 
-    <!-- Botão para acessar a Ordem de Serviço -->
-    <a href="ordem-servico.html" class="btn">Ordem de Serviço</a>
-  </main>
+    <main>
+        <p>Bem-vindo ao sistema de gestão da MV CAR.</p>
 
-  <footer>
-    <p>&copy; 2025 MV CAR - Todos os direitos reservados.</p>
-  </footer>
+        <!-- Botão para Ordem de Serviço -->
+        <a href="ordem-servico.html" class="btn btn-primary">Ordem de Serviço</a>
 
-  <style>
-    .btn {
-      display: inline-block;
-      padding: 12px 25px;
-      background-color: #007bff;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-size: 16px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
-    .btn:hover {
-      background-color: #0056b3;
-    }
-  </style>
+        <!-- Aqui ficam suas funcionalidades antigas -->
+        <a href="clientes.html" class="btn btn-primary">Cadastro de Clientes</a>
+        <a href="veiculos.html" class="btn btn-primary">Cadastro de Veículos</a>
+        <a href="servicos.html" class="btn btn-primary">Serviços</a>
+        <a href="pecas.html" class="btn btn-primary">Peças</a>
+        <a href="relatorios.html" class="btn btn-primary">Relatórios</a>
+    </main>
+
+    <footer>
+        © 2025 MV CAR - Todos os direitos reservados.
+    </footer>
+
 </body>
 </html>
