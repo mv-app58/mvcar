@@ -4,74 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MV CAR - Gestão de Oficina</title>
-    <link rel="stylesheet" href="styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f8f9fa;
             margin: 0;
             padding: 0;
-        }
-        header {
-            background-color: #1a1a1a;
-            color: white;
-            padding: 15px;
             text-align: center;
         }
+        header {
+            background-color: #212529;
+            color: white;
+            padding: 15px;
+        }
+        header img {
+            height: 50px;
+        }
         main {
-            padding: 20px;
+            margin-top: 50px;
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+        p {
+            font-size: 16px;
+            color: #6c757d;
         }
         .btn {
             display: inline-block;
-            padding: 10px 20px;
             margin: 10px;
+            padding: 12px 20px;
             font-size: 16px;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-        .btn-primary {
-            background-color: #007bff;
             color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
         }
-        .btn-primary:hover {
+        .btn-os {
+            background-color: #007bff;
+        }
+        .btn-os:hover {
             background-color: #0056b3;
         }
+        .btn-orc {
+            background-color: #28a745;
+        }
+        .btn-orc:hover {
+            background-color: #1e7e34;
+        }
         footer {
-            text-align: center;
-            padding: 15px;
-            background-color: #1a1a1a;
-            color: white;
-            position: fixed;
-            bottom: 0;
-            width: 100%;
+            margin-top: 50px;
+            padding: 10px;
+            font-size: 14px;
+            color: #6c757d;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>MV CAR - Gestão de Oficina</h1>
-    </header>
+<header>
+    <img src="logo.png" alt="MV CAR Logo">
+    <h1>MV CAR - Gestão de Oficina</h1>
+</header>
 
-    <main>
-        <p>Bem-vindo ao sistema de gestão da MV CAR.</p>
+<main>
+    <p>Bem-vindo ao sistema de gestão da MV CAR.</p>
 
-        <!-- Botão para Ordem de Serviço -->
-        <a href="ordem-servico.html" class="btn btn-primary">Ordem de Serviço</a>
+    <a href="ordem-servico.html" class="btn btn-os">📄 Ordem de Serviço</a>
+    <a href="orcamento.html" class="btn btn-orc">💰 Orçamento</a>
+</main>
 
-        <!-- Aqui ficam suas funcionalidades antigas -->
-        <a href="clientes.html" class="btn btn-primary">Cadastro de Clientes</a>
-        <a href="veiculos.html" class="btn btn-primary">Cadastro de Veículos</a>
-        <a href="servicos.html" class="btn btn-primary">Serviços</a>
-        <a href="pecas.html" class="btn btn-primary">Peças</a>
-        <a href="relatorios.html" class="btn btn-primary">Relatórios</a>
-    </main>
-
-    <footer>
-        © 2025 MV CAR - Todos os direitos reservados.
-    </footer>
+<footer>
+    © 2025 MV CAR - Todos os direitos reservados.
+</footer>
 
 </body>
 </html>
