@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento - MV CAR</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #e9ecef;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #212529;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header img {
+            height: 50px;
+        }
+        main {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            box-shadow: 0px 0px 12px rgba(0,0,0,0.1);
+            margin-top: 30px;
+            border-radius: 12px;
+        }
+        h2 {
+            text-align: center;
+            color: #343a40;
+            border-bottom: 2px solid #dee2e6;
+            padding-bottom: 8px;
+        }
+        label {
+            font-weight: bold;
+            margin-top: 10px;
+            display: block;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="logo.png" alt="MV CAR Logo">
+    <h1>Orçamento</h1>
+</header>
+
+<main>
+    <h2>Preencha os dados do Orçamento</h2>
+
+    <label>Cliente</label>
+    <input type="text" id="cliente">
+
+    <label>Descrição dos Serviços</label>
+    <textarea id="servicos"></textarea>
+
+    <label>Peças e Custos</label>
+    <textarea id="pecas"></textarea>
+
+    <label>Prazo de Entrega</label>
+    <input type="text" id="prazo">
+
+    <label>Valor Total</label>
+    <input type="text" id="valor">
+
+    <button onclick="salvarPDF()">Salvar Orçamento em PDF</button>
+</main>
+
+<script>
+    async function salvarPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFontSize(18);
+        doc.text("MV CAR - Orçamento", 10, 10);
+
+        doc.setFontSize(12);
+        doc.text("Cliente: " + document.getElementById("cliente").value, 10, 30);
+        doc.text("Descrição dos Serviços: " + document.getElementById("servicos").value, 10, 40);
+        doc.text("Peças e Custos: " + document.getElementById("pecas").value, 10, 60);
+        doc.text("Prazo de Entrega: " + document.getElementById("prazo").value, 10, 80);
+        doc.text("Valor Total: R$ " + document.getElementById("valor").value, 10, 100);
+
+        doc.save("orcamento.pdf");
+    }
+</script>
+
+</body>
+</html>
